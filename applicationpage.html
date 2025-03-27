@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+
+    <style>
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 120px;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #2c3e50, #4ca1af);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border: 2px solid #4ca1af;
+        }
+        button {
+            background: #4ca1af;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 15px;
+            width: 100%;
+        }
+        button:hover {
+            background: #2c3e50;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .popup button {
+            margin-top: 10px;
+            background: #4ca1af;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="Images/hotbeanslogo.png" alt="Hot Beans Logo" class="logo">
+
+    <div class="container">
+        <h1>Apply for a Job</h1>
+        <form id="jobApplicationForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="position">Position Applying For</label>
+            <select id="position" name="position" required>
+                <option value="">Select a position</option>
+                <option value="Front-End Developer">Front-End Developer</option>
+                <option value="Back-End Developer">Back-End Developer</option>
+                <option value="Full-Stack Developer">Full-Stack Developer</option>
+                <option value="UI/UX Designer">UI/UX Designer</option>
+            </select>
+            
+            <label for="resume">Resume (Paste URL or Brief Summary)</label>
+            <textarea id="resume" name="resume" rows="4" required></textarea>
+            
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+    
+    <div class="popup" id="popup">
+        <p>Your application has been submitted successfully!</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+    
+    <script>
+        document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('popup').style.display = 'block';
+        });
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
